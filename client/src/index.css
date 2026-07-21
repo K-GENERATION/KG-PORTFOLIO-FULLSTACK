@@ -1,0 +1,323 @@
+/* ============================================
+   RESET & BASE
+============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   THEME (mode sombre / clair)
+============================================ */
+body[data-theme='light'] {
+  background-color: #FFFFFF;
+  color: #0F172A;
+}
+
+body[data-theme='dark'] {
+  background-color: #0F172A;
+  color: #FFFFFF;
+}
+
+body[data-theme='dark'] .stat-card {
+  background-color: #1E293B;
+}
+
+body[data-theme='dark'] .navbar {
+  border-bottom: 1px solid #1E293B;
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  border-bottom: 1px solid #E2E8F0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.navbar-name {
+  display: block;
+  font-weight: bold;
+  color: #2563EB;
+}
+
+.navbar-subtitle {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748B;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.navbar-links a {
+  font-weight: 500;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-actions select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-cv {
+  background-color: #2563EB;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* ============================================
+   HERO (section d'accueil)
+============================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  color: #64748B;
+  margin: 15px 0;
+}
+
+.hero-tags {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #2563EB;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  border: 1px solid #2563EB;
+  color: #2563EB;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Bloc image avec arrière-plan décoratif */
+.hero-image {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Cercle dégradé en arrière-plan */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 340px;
+  background: linear-gradient(135deg, #2563EB22, #16A34A22);
+  border: 3px solid #09cf09f8;
+  border-radius: 10%;
+  z-index: 0;
+}
+/* Logo en filigrane derrière la photo */
+.hero-logo-bg {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  opacity: 0.12;
+  z-index: 0;
+  object-fit: contain;
+}
+
+/* Photo de profil au premier plan */
+.hero-photo {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   STATISTICS (les 4 cartes)
+============================================ */
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 40px 60px;
+}
+
+.stat-card {
+  background-color: #F8FAFC;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.stat-card h3 {
+  color: #2563EB;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* ============================================
+   CTA (appel à l'action en bas de page)
+============================================ */
+.cta {
+  text-align: center;
+  padding: 60px 40px;
+  background-color: #F8FAFC;
+}
+
+body[data-theme='dark'] .cta {
+  background-color: #1E293B;
+}
+
+.cta h2 {
+  margin-bottom: 10px;
+}
+
+.cta p {
+  color: #64748B;
+  margin-bottom: 20px;
+}
+
+.cta a {
+  background-color: #2563EB;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #64748B;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .statistics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .statistics {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-image,
+  .hero-image::before {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-photo {
+    width: 220px;
+    height: 220px;
+  }
+}
