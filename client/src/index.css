@@ -40,8 +40,8 @@ body[data-theme='dark'] .stat-card {
 
 body[data-theme='dark'] .navbar {
   border-bottom: 1px solid #1E293B;
+  background-color: #0F172A;
 }
-
 /* ============================================
    NAVBAR
 ============================================ */
@@ -53,8 +53,11 @@ body[data-theme='dark'] .navbar {
   border-bottom: 1px solid #E2E8F0;
   flex-wrap: wrap;
   gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #FFFFFF;
 }
-
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -428,6 +431,274 @@ body[data-theme='dark'] .about-vision {
   }
 
   .about-image {
+    width: 220px;
+    height: 220px;
+  }
+}
+/* ============================================
+   QUOTE ROTATOR (citations défilantes)
+============================================ */
+.quote-rotator {
+  margin-top: 35px;
+  padding: 20px 25px;
+  border-left: 3px solid #2563EB;
+  background: linear-gradient(90deg, #2563EB0D, transparent);
+  border-radius: 0 8px 8px 0;
+  min-height: 90px;
+}
+
+.quote-text {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: inherit;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.quote-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quote-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.quote-author {
+  display: block;
+  text-align: right;
+  margin-top: 12px;
+  font-weight: 600;
+  color: #2563EB;
+  font-size: 0.9rem;
+}
+
+body[data-theme='dark'] .quote-rotator {
+  background: linear-gradient(90deg, #2563EB1A, transparent);
+}
+/* ============================================
+   DOMAINES DE TRAVAIL (organigramme)
+============================================ */
+.domains-chart {
+  margin: 30px 0;
+}
+
+.domains-title {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #2563EB;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.domains-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.domains-root {
+  background-color: #2563EB;
+  color: white;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Ligne verticale descendant du noeud racine */
+.domains-root::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 25px;
+  background-color: #2563EB55;
+}
+
+.domains-branches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 20px;
+  position: relative;
+  padding-top: 15px;
+}
+
+/* Ligne horizontale reliant toutes les branches */
+.domains-branches::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background-color: #2563EB55;
+}
+
+.domain-node {
+  background-color: #F8FAFC;
+  border: 1px solid #2563EB33;
+  color: #0F172A;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  position: relative;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Petite ligne verticale reliant chaque noeud à la ligne horizontale */
+.domain-node::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 2px;
+  height: 15px;
+  background-color: #2563EB55;
+}
+
+.domain-node:hover {
+  transform: translateY(-3px);
+  background-color: #2563EB11;
+}
+
+body[data-theme='dark'] .domain-node {
+  background-color: #1E293B;
+  color: #FFFFFF;
+  border-color: #2563EB55;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .domains-branches {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .domains-branches::before {
+    display: none;
+  }
+
+  .domain-node::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   ANIMATION SUR LA PHOTO HERO
+============================================ */
+
+/* Flottement doux de la photo */
+.hero-photo {
+  animation: floatPhoto 4s ease-in-out infinite;
+}
+
+@keyframes floatPhoto {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Pulsation du cercle en arrière-plan */
+.hero-image::before {
+  animation: pulseCircle 3s ease-in-out infinite;
+}
+
+@keyframes pulseCircle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Rotation lente et discrète du logo en filigrane */
+.hero-logo-bg {
+  animation: rotateLogoBg 20s linear infinite;
+}
+
+@keyframes rotateLogoBg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ============================================
+   BIO SUMMARY (résumé biographie sur Home)
+============================================ */
+.bio-summary {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 60px 40px;
+  flex-wrap: wrap;
+}
+
+.bio-summary-image {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+}
+
+.bio-summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.bio-summary-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.bio-summary-text h2 {
+  color: #2563EB;
+  margin-bottom: 18px;
+}
+
+.bio-summary-text p {
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: inherit;
+}
+
+.bio-summary-quote {
+  font-style: italic;
+  color: #DC2626;
+  border-left: 3px solid #DC2626;
+  padding-left: 15px;
+  margin: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .bio-summary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bio-summary-quote {
+    text-align: left;
+  }
+
+  .bio-summary-image {
     width: 220px;
     height: 220px;
   }
