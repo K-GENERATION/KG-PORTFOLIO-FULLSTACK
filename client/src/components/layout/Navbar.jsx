@@ -12,17 +12,16 @@ function Navbar() {
         <img src="/images/logo.png" alt="Logo Kingson Guerrier" className="navbar-logo" />
         <div>
           <span className="navbar-name">KINGSON GUERRIER</span>
-          <span className="navbar-subtitle">Business Administrator & Web Developer</span>
+          <span className="navbar-subtitle">Administrateur d'affaires | Consultant en TIC</span>
         </div>
       </div>
 
       <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/skills">Skills</Link></li>
-        <li><Link to="/projects">Projects</Link></li>
-        <li><Link to="/contact">Blog</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/">ACCEUIL</Link></li>
+        <li><Link to="/about">BIOGRAPHIE</Link></li>
+        <li><Link to="/skills">COMPÉTENCES</Link></li>
+        <li><Link to="/projects">PROJETS</Link></li>
+        <li><Link to="/contact">CONTACT</Link></li>
       </ul>
 
       <div className="navbar-actions">
@@ -34,7 +33,7 @@ function Navbar() {
         <button onClick={toggleTheme} className="theme-btn">
           {theme === 'light' ? '🌙' : '☀️'}
         </button>
-        <a href="/cv.pdf" download className="btn-cv">Télécharger CV</a>
+        <a href="/cv.pdf" download className="btn-cv">Télécharger mon CV</a>
       </div>
     </nav>
   );

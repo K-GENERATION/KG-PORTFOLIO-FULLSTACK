@@ -1,9 +1,9 @@
 function Statistics() {
   const stats = [
-    { titre: 'Orienté résultats', description: 'Des solutions efficaces pour des résultats concrets.' },
-    { titre: 'Innovation', description: "J'utilise la technologie pour créer de la valeur." },
-    { titre: 'Leadership', description: "Gestion de projets et d'équipes avec rigueur et vision." },
-    { titre: 'Engagement', description: 'Engagé à livrer des projets de qualité.' },
+    { titre: 'ADMINISTRATION D\'AFFAIRES', description: 'Gestion financière | Planification stratégique | Optimisation des processus' },
+    { titre: 'TECHNOLOGIE', description: "J'utilise la technologie pour créer de la valeur." },
+    { titre: 'GESTION DE PROJETS', description: "Gestion de projets et d'équipes avec rigueur et vision." },
+    { titre: 'ANALYSE DE DONNÉES', description: 'Engagé à livrer des projets de qualité.' },
   ];
 
   return (
