@@ -1,7 +1,7 @@
 function Statistics() {
   const stats = [
     { titre: '5+ ENTREPRISES', description: 'Accompagnées dans la transformation digitale' },
-    { titre: '3+ PLATFORMES WEB ', description: ' Développées et maintenues avec' },
+    { titre: '3+ PLATFORMES WEB ', description: ' Développées et maintenues' },
     { titre: '10+ PROJETS ', description: "Réalisés, participés et coordonnés" },
     { titre: '5+ FORMATIONS', description: 'Réalisées, participées et coordonnées' },
   ];

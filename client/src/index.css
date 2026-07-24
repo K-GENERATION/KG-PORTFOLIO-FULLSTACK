@@ -703,3 +703,147 @@ body[data-theme='dark'] .domain-node {
     height: 220px;
   }
 }
+
+
+
+/* ============================================
+   SKILLS PAGE - ACCORDÉON
+============================================ */
+.skills-page {
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills-intro {
+  color: #64748B;
+  margin: 10px 0 40px;
+  line-height: 1.6;
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-item {
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.accordion-item.open {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+  border-color: #2563EB55;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background-color: #F8FAFC;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: inherit;
+  transition: background-color 0.25s ease;
+}
+
+.accordion-header:hover {
+  background-color: #EFF4FF;
+}
+
+body[data-theme='dark'] .accordion-header {
+  background-color: #1E293B;
+}
+
+body[data-theme='dark'] .accordion-header:hover {
+  background-color: #263449;
+}
+
+.accordion-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.accordion-icon {
+  font-size: 1.3rem;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  color: #2563EB;
+  font-size: 1.1rem;
+}
+
+.accordion-item.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+
+.accordion-inner {
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Réutilisation des barres de progression (déjà stylées) */
+.progress-item {
+  width: 100%;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.progress-track {
+  width: 100%;
+  height: 9px;
+  background-color: #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+body[data-theme='dark'] .progress-track {
+  background-color: #334155;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563EB, #16A34A);
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .skills-page {
+    padding: 25px 20px;
+  }
+
+  .accordion-header {
+    padding: 15px 16px;
+    font-size: 0.9rem;
+  }
+
+  .accordion-inner {
+    padding: 18px 16px;
+  }
+}
