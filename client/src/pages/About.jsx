@@ -90,7 +90,8 @@ function About() {
         </div>
 
         <blockquote className="about-slogan">
-          « Tourner le dos à la tech, c'est regarder l'avenir dans un rétroviseur »
+          « Tourner le dos à la technologie, c'est regarder l'avenir dans un rétroviseur » 
+                                                                                        Kingson GUERRIER
         </blockquote>
       </AboutSection>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import AccordionCategory from '../components/skills/AccordionCategory';
+import FloatingIcons from '../components/skills/FloatingIcons';
 
 const categories = [
   {
@@ -120,7 +121,7 @@ const categories = [
 ];
 
 function Skills() {
-  const [openIndex, setOpenIndex] = useState(0); // premier ouvert par défaut
+  const [openIndex, setOpenIndex] = useState(0);
 
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -128,10 +129,12 @@ function Skills() {
 
   return (
     <div className="skills-page">
-      <h1>COMPETENCES</h1>
+      <FloatingIcons />
+
+      <h1>Compétences</h1>
       <p className="skills-intro">
-        Kingson possède un profil hybride alliant management, technologie et analyse de données. Cliquez sur
-        chaque catégorie pour découvrir les détail de ses compétences.
+        Un profil hybride alliant management, technologie et analyse de données. Cliquez sur
+        chaque catégorie pour découvrir le détail de mes compétences.
       </p>
 
       <div className="accordion-list">
