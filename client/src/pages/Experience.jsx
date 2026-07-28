@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TimelineItem from '../components/experience/TimelineItem';
 import EducationCard from '../components/experience/EducationCard';
+import CertificateCard from '../components/experience/CertificateCard';
 import AccordionCategory from '../components/skills/AccordionCategory';
 import FloatingIcons from '../components/skills/FloatingIcons';
 
@@ -270,6 +271,40 @@ const categories = [
   },
 ];
 
+// ===== DONNÉES: CERTIFICATIONS =====
+const certificates = [
+  {
+    image: '/images/certificats/diplome.png',
+    titre: 'Diplôme en Administration des Affaires',
+    institution: 'UPNCH',
+  },
+  {
+    image: '/images/certificats/data1.png',
+    titre: 'Data Analytics',
+    institution: 'Google - Coursera',
+  },
+  {
+    image: '/images/certificats/cyber1.png',
+    titre: 'Cybersécurité',
+    institution: 'Google - Coursera',
+  },
+  {
+    image: '/images/certificats/attestation.png',
+    titre: 'Développement Web',
+    institution: 'OIF - DCLIC',
+  },
+  {
+    image: '/images/certificats/kaw.jpeg',
+    titre: 'Informatique de base',
+    institution: 'Kaw Academy',
+  },
+  {
+    image: '/images/certificats/cea.jpeg',
+    titre: 'Contribution communautaire',
+    institution: 'MhatriX NG',
+  },
+];
+
 function Experience() {
   const [activeTab, setActiveTab] = useState('experiences');
   const [openIndex, setOpenIndex] = useState(0);
@@ -309,6 +344,12 @@ function Experience() {
         >
           COMPETENCES
         </button>
+        <button
+          className={activeTab === 'certifications' ? 'tab-active' : ''}
+          onClick={() => setActiveTab('certifications')}
+        >
+          DIPLOME
+        </button>
       </div>
 
       {/* Contenu selon l'onglet actif */}
@@ -344,10 +385,18 @@ function Experience() {
             ))}
           </div>
         )}
+        {activeTab === 'certifications' && (
+          <div className="certificates-gallery">
+            {certificates.map((cert, index) => (
+              <CertificateCard key={index} {...cert} />
+            ))}
+          </div>
+        )}
 
       </div>
     </div>
   );
+
 }
 
 export default Experience;
