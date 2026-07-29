@@ -52,7 +52,7 @@ function ContactForm() {
         setFormData({ nom: '', email: '', sujet: '', message: '' });
       } else {
         setStatut('erreur');
-        setErreurMessage(data.error || 'Une erreur est survenue.');
+        setErreurMessage(data.error || 'Une erreur est survenue, veuillez réessayer un autre canal.');
       }
     } catch (error) {
       setStatut('erreur');
@@ -63,7 +63,7 @@ function ContactForm() {
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="nom">Nom</label>
+        <label htmlFor="nom">Votre nom complet</label>
         <input
           type="text"
           id="nom"
@@ -74,7 +74,7 @@ function ContactForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Votre adresse email</label>
         <input
           type="email"
           id="email"
@@ -85,7 +85,7 @@ function ContactForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="sujet">Sujet</label>
+        <label htmlFor="sujet">Le sujet de votre message</label>
         <input
           type="text"
           id="sujet"
@@ -96,7 +96,7 @@ function ContactForm() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="message">Message</label>
+        <label htmlFor="message">Redigez votre message</label>
         <textarea
           id="message"
           name="message"
@@ -111,7 +111,7 @@ function ContactForm() {
       </button>
 
       {statut === 'succes' && (
-        <p className="form-toast form-toast-success">✅ Message envoyé avec succès !</p>
+        <p className="form-toast form-toast-success">Votre message est envoyé avec succès, je vous contacterai bientôt !</p>
       )}
 
       {statut === 'erreur' && (
