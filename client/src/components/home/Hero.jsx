@@ -24,7 +24,7 @@ function Hero() {
   </div>
 </div>
         <div className="hero-buttons">
-          <a href="/cv.pdf" download className="btn-primary">Télécharger CV</a>
+          <a href="/cv.pdf" download className="btn-primary">Voir mon CV</a>
           <Link to="/projects" className="btn-secondary">Voir mes projets</Link>
         </div>
 
@@ -32,7 +32,6 @@ function Hero() {
       </div>
 
       <div className="hero-image">
-        <img src="/images/logo.png" alt="" className="hero-logo-bg" />
         <img src="/images/KG1.png" alt="Kingson Guerrier" className="hero-photo" />
       </div>
     </section>

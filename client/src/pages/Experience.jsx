@@ -3,7 +3,6 @@ import TimelineItem from '../components/experience/TimelineItem';
 import EducationCard from '../components/experience/EducationCard';
 import CertificateCard from '../components/experience/CertificateCard';
 import AccordionCategory from '../components/skills/AccordionCategory';
-import FloatingIcons from '../components/skills/FloatingIcons';
 
 // ===== DONNÉES: EXPÉRIENCES =====
 const experiences = [
@@ -315,7 +314,6 @@ function Experience() {
 
   return (
     <div className="experience-page">
-      <FloatingIcons />
 
       <div className="experience-header">
         <h1>EXPERIENCES, FORMATION ET COMPÉTENCES</h1>

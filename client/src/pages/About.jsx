@@ -10,21 +10,20 @@ function About() {
         image="/images/about-1.png"
       >
         <p>
-        <strong>Kingson Guerrier</strong>, surnommé <strong>KG</strong>, est un Administrateur d'affaires et
-          Consultant en Technologies de l'Information et de la Communication (TIC). Passionné
-          par l'innovation, la transformation numérique et le développement des organisations,
-          son parcours allie management, technologie et analyse de données, consacré à la
-          conception et au développement de solutions numériques pour répondre aux défis du
+        <strong>Kingson GUERRIER </strong>est un <em>Administrateur d'affaires</em> et
+          <em>Consultant en Technologies de l'Information et de la Communication (TIC)</em>. Passionné
+          par la tech, la <em>transformation numérique</em> et le développement des organisations,
+          Il a un parcours qui allie <strong>le management</strong>, <strong>la technologie</strong> et <strong>l'analyse de données</strong> et il se consacre à la
+          conception et au développement de solutions numériques pouvant repondre aux grands défis du
           monde moderne.
         </p>
         <p>
-          Détenteur d'un diplôme en Administration des Affaires à l'Université Publique du Nord
-          au Cap-Haïtien (UPNCH), il poursuit actuellement un Diplôme Universitaire Technique
-          (DUT) en Technologies de l'Information et de la Communication (TIC) à l'Institut des
+          Détenteur d'un diplôme en <strong>Administration des Affaires</strong> à l'<em>Université Publique du Nord
+          au Cap-Haïtien (UPNCH)</em>, il poursuit actuellement un <em>Diplôme Universitaire Technique</em> en Technologies de l'Information et de la Communication (TIC) à l'Institut des
           Sciences, des Technologies et des Études Avancées d'Haïti (ISTEAH), tout en renforçant
-          ses compétences en Data Analytics, développement web Full-Stack, gestion de projets et
-          intelligence artificielle. Convaincu que les compétences évoluent en permanence, il
-          considère la formation continue comme un pilier essentiel de son développement
+          ses compétences en <em>Data Analytics</em>, <em>Développement Web</em>, <em>Gestion de Projets</em> et
+          <em>Intelligence Artificielle</em>. Convaincu que les compétences évoluent en permanence, il
+          considère la formation continue comme un pilier essentiel de son développement personnel et
           professionnel.
         </p>
       </AboutSection>
@@ -37,23 +36,23 @@ function About() {
       >
         <p>
           Au fil des années, il a coordonné plusieurs projets à fort impact social et éducatif.
-          Depuis plus de cinq ans, il dirige le projet national <strong>Questions Pour les
+          Il a passé <strong>trois (3) ans </strong> à la tête du projet national de culture générale intitulé: <strong>Questions Pour les
           Surdoués (QPS)</strong>, une initiative qui valorise l'excellence académique et la
           culture générale auprès des jeunes. Cette expérience lui a permis de développer une
           solide expertise en planification stratégique, en gestion d'équipes, en coordination
           opérationnelle et en leadership.
         </p>
         <p>
-          Son engagement communautaire l'a également conduit à exercer diverses responsabilités
+          Son <em>engagement communautaire</em> l'a également conduit à exercer diverses responsabilités
           au sein d'organisations de développement, entre autres <strong>MhatriX NG</strong>, où
-          il a contribué à la gestion administrative, à l'organisation d'activités, au pilotage
-          de projets et au renforcement des capacités des équipes.
+          il a contribué à la <em>gestion administrative</em>, à l'<em>organisation d'activités</em>, au <em>pilotage
+          de projets</em> et au <em>renforcement des capacités des équipes</em>.
         </p>
         <p>Kingson est aussi :</p>
         <ul className="about-roles">
-          <li>Technopreneur</li>
-          <li>Conférencier</li>
-          <li>Professeur informatique</li>
+          <li><em>Technopreneur</em></li>
+          <li><em>Conférencier</em></li>
+          <li><em>Professeur informatique</em></li>
         </ul>
       </AboutSection>
 
@@ -64,10 +63,10 @@ function About() {
       >
         <p>
           Aujourd'hui, il s'intéresse particulièrement à la manière dont les technologies
-          transforment les organisations. Ses travaux de recherche portent sur l'impact des TIC
-          sur le management moderne des organisations, avec pour objectif de démontrer que la
+          transforment les organisations. Ses travaux de recherche portent sur l'<em>impact des TIC
+          sur le management moderne des organisations</em>, avec pour <em>objectif de démontrer que la
           technologie constitue désormais un levier incontournable de performance, de
-          compétitivité et de pérennité.
+          compétitivité et de pérennité.</em>
         </p>
 
         <div className="about-mission">
