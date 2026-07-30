@@ -1,8 +1,8 @@
 function ContactInfo() {
   const socials = [
     { nom: 'LinkedIn', lien: 'https://linkedin.com/in/kingson-guerrier', color: '#0A66C2' },
-    { nom: 'GitHub', lien: 'https://github.com/kingsonguerrier', color: '#333333' },
-    { nom: 'Facebook', lien: 'https://facebook.com/kingson.guerrier', color: '#1877F2' },
+    { nom: 'GitHub', lien: 'https://github.com/K-GENERATION', color: '#333333' },
+    { nom: 'Facebook', lien: 'https://www.facebook.com/share/1buzZj3feG/', color: '#1877F2' },
     { nom: 'WhatsApp', lien: 'https://wa.me/50942512660', color: '#25D366' },
   ];
 

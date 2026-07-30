@@ -41,10 +41,10 @@ function Footer() {
             <a href="https://linkedin.com/in/kingson-guerrier" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="/images/socials/ldn.png" alt="LinkedIn" />
             </a>
-            <a href="https://github.com/kingsonguerrier" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/K-GENERATION" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="/images/socials/gt.png" alt="GitHub" />
             </a>
-            <a href="https://facebook.com/kingson.guerrier" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://facebook.com/share/1buzZj3feG/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <img src="/images/socials/fb.png" alt="Facebook" />
             </a>
             <a href="https://wa.me/50942512660" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
