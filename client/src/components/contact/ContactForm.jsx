@@ -17,7 +17,7 @@ function ContactForm() {
 
   const validerFormulaire = () => {
     if (!formData.nom.trim() || !formData.email.trim() || !formData.sujet.trim() || !formData.message.trim()) {
-      return 'Tous les champs sont obligatoires.';
+      return 'Il faut remplir tous les champs avant d\'envoyer votre message.';
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -115,7 +115,7 @@ function ContactForm() {
       )}
 
       {statut === 'erreur' && (
-        <p className="form-toast form-toast-error">❌ {erreurMessage}</p>
+        <p className="form-toast form-toast-error">{erreurMessage}</p>
       )}
     </form>
   );

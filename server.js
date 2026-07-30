@@ -13,10 +13,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Sert le build de production de React
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-// Route POST — réception du formulaire de contact
 app.post('/api/contact', (req, res) => {
   const { nom, email, sujet, message } = req.body;
 
@@ -53,7 +51,6 @@ app.post('/api/contact', (req, res) => {
   res.status(200).json({ success: true, message: 'Message envoyé avec succès.' });
 });
 
-// Toute autre route renvoie l'app React (routing côté client)
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
