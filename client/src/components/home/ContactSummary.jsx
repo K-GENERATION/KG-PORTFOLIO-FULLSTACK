@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 function ContactSummary() {
   return (
     <section className="home-contact-summary">
-      <h2>Travaillons ensemble</h2>
-      <p>Une question, un projet, une opportunité ? N'hésitez pas à me contacter.</p>
-      <Link to="/contact" className="btn-primary">Me contacter</Link>
+      <h2>CONTACTEZ-MOI DIRECTEMENT</h2>
+      <p>Pour commander un service, pour me posez une question, pour echanger sur un projet, pour me proposer une opportunité, pour une consultation, ...</p>
+      <Link to="/contact" className="btn-primary">Cliquez ICI</Link>
     </section>
   );
 }

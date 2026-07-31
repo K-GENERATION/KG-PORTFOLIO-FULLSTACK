@@ -35,7 +35,7 @@ body[data-theme='dark'] {
 }
 
 body[data-theme='dark'] .stat-card {
-  background-color: #1E293B;
+  background-color: #3b1e1e;
 }
 
 body[data-theme='dark'] .navbar {
@@ -50,7 +50,7 @@ body[data-theme='dark'] .navbar {
   align-items: center;
   justify-content: space-between;
   padding: 15px 40px;
-  border-bottom: 1px solid #3fff04;
+  border-bottom: 1px solid #ff0404;
   flex-wrap: wrap;
   gap: 15px;
   position: sticky;
@@ -104,11 +104,12 @@ body[data-theme='dark'] .navbar {
 
 .theme-btn {
   background: none;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #fc0303;
   border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
   font-size: 1rem;
+  color:#013cfd
 }
 
 .btn-cv {
@@ -140,6 +141,7 @@ body[data-theme='dark'] .navbar {
   font-size: 3rem;
   line-height: 1.1;
   color: #2563EB;
+  border-left: 2px solid #16A34A;
 }
 
 .hero-subtitle {
@@ -215,36 +217,6 @@ body[data-theme='dark'] .navbar {
 .stat-card p {
   font-size: 0.85rem;
   color: #64748B;
-}
-
-/* ============================================
-   CTA (appel à l'action en bas de page)
-============================================ */
-.cta {
-  text-align: center;
-  padding: 60px 40px;
-  background-color: #F8FAFC;
-}
-
-body[data-theme='dark'] .cta {
-  background-color: #1E293B;
-}
-
-.cta h2 {
-  margin-bottom: 10px;
-}
-
-.cta p {
-  color: #64748B;
-  margin-bottom: 20px;
-}
-
-.cta a {
-  background-color: #2563EB;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 500;
 }
 
 
@@ -587,19 +559,6 @@ body[data-theme='dark'] .domain-node {
   }
 }
 
-/* Rotation lente et discrète du logo en filigrane */
-.hero-logo-bg {
-  animation: rotateLogoBg 20s linear infinite;
-}
-
-@keyframes rotateLogoBg {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 /* ============================================
    BIO SUMMARY (résumé biographie sur Home)
 ============================================ */
@@ -810,54 +769,6 @@ body[data-theme='dark'] .progress-track {
     padding: 18px 16px;
   }
 }
-/* ============================================
-   FLOATING ICONS (arrière-plan Skills)
-============================================ */
-.skills-page {
-  position: relative;
-  overflow: hidden;  
-}
-
-.floating-icons {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.floating-icon {
-  position: absolute;
-  opacity: 0.12;
-  animation: floatIcon ease-in-out infinite;
-  user-select: none;
-}
-
-body[data-theme='dark'] .floating-icon {
-  opacity: 0.08;
-}
-
-@keyframes floatIcon {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-25px) rotate(10deg);
-  }
-}
-
-/* S'assure que le contenu reste au-dessus des icônes */
-.skills-page > h1,
-.skills-page > .skills-intro,
-.skills-page > .accordion-list {
-  position: relative;
-  z-index: 1;
-}
-
-
 
 
 /* ============================================
@@ -1879,7 +1790,7 @@ body[data-theme='dark'] .footer-bottom {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: #2563EB;
+  background-color: #35eb25;
   border-radius: 3px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -2000,7 +1911,7 @@ body[data-theme='dark'] .summary-card {
 
 .home-contact-summary {
   text-align: center;
-  padding: 60px 40px;
+  padding: 30px 20px;
   background: linear-gradient(135deg, #2563EB, #16A34A);
   color: white;
   border-radius: 16px;
@@ -2017,8 +1928,8 @@ body[data-theme='dark'] .summary-card {
 }
 
 .home-contact-summary .btn-primary {
-  background-color: white;
-  color: #2563EB;
+  background-color: rgb(252, 0, 0);
+  color: #fcfcfc;
 }
 
 @media (max-width: 800px) {

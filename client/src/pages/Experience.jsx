@@ -47,7 +47,7 @@ const experiences = [
     periode: '2024 - 2026',
     statut: 'Terminé',
     taches: [
-      'Dispense du cours',
+      'Dispenser le cours',
       'Configuration du laboratoire',
       'Préparation et correction des examens',
       "Surveillance d'examens",

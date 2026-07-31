@@ -19,7 +19,7 @@ function ExperienceSummary() {
           </div>
         ))}
       </div>
-      <Link to="/experience" className="btn-secondary">Voir toutes mes expériences →</Link>
+      <Link to="/experience" className="btn-secondary">Voir toutes mes expériences</Link>
     </section>
   );
 }
