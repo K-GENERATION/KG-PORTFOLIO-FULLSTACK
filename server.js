@@ -51,6 +51,24 @@ app.post('/api/contact', (req, res) => {
   res.status(200).json({ success: true, message: 'Message envoyé avec succès.' });
 });
 
+// Route protégée pour consulter les messages reçus
+app.get('/api/messages', (req, res) => {
+  const motDePasse = req.query.password;
+  const motDePasseAttendu = process.env.ADMIN_PASSWORD || 'change-moi';
+
+  if (motDePasse !== motDePasseAttendu) {
+    return res.status(401).json({ success: false, error: 'Accès refusé. Mot de passe requis.' });
+  }
+
+  const messagesPath = path.join(__dirname, 'messages.json');
+  if (fs.existsSync(messagesPath)) {
+    const data = fs.readFileSync(messagesPath, 'utf-8');
+    res.json(JSON.parse(data));
+  } else {
+    res.json([]);
+  }
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
