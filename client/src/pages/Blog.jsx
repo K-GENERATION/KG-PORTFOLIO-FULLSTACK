@@ -29,12 +29,12 @@ function Blog() {
       <header className="blog-hero">
         <span className="blog-hero-tag">Blog</span>
         <h1>Opinions personnelles</h1>
-        <p>Réflexions sur la technologie, l'IA, le management et la gestion de projets.</p>
+        <p>Toutes mes réflexions sur la technologie, l'IA, le management et la gestion de projets en un seul clic.</p>
 
         <div className="blog-search">
           <input
             type="search"
-            placeholder="Rechercher un article..."
+            placeholder="Faites une recherche..."
             value={recherche}
             onChange={(e) => setRecherche(e.target.value)}
             aria-label="Rechercher un article"

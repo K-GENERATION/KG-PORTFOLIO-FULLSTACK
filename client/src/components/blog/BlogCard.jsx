@@ -25,7 +25,7 @@ function BlogCard({ post, featured = false }) {
         <div className="blog-meta">
           <time dateTime={post.date}>{date}</time>
           <span>·</span>
-          <span>{tempsDeLecture(post.contenu)} min de lecture</span>
+          <span>{tempsDeLecture(post.contenu)} minutes de lecture</span>
         </div>
         <h3><Link to={`/blog/${post.id}`}>{post.titre}</Link></h3>
         <p>{post.resume}</p>
@@ -34,7 +34,7 @@ function BlogCard({ post, featured = false }) {
             <img src="/images/logo.png" alt="" />
             <span>Kingson Guerrier</span>
           </div>
-          <Link to={`/blog/${post.id}`} className="blog-read-more">Lire →</Link>
+          <Link to={`/blog/${post.id}`} className="blog-read-more">Lire l'article</Link>
         </div>
       </div>
     </article>

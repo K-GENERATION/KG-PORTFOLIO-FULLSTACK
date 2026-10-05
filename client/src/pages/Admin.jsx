@@ -97,7 +97,7 @@ function Admin() {
         setMessage(`❌ ${data.error}`);
       }
     } catch {
-      setMessage("❌ Échec de l'envoi de l'image.");
+      setMessage("Échec de l'envoi de l'image.");
     } finally {
       setUploading(false);
     }
@@ -117,7 +117,7 @@ function Admin() {
     }
     const data = await res.json();
     if (data.success) {
-      setMessage('✅ Article publié !');
+      setMessage('Article publié !');
       setForm(VIDE);
       loadPosts();
     } else {
@@ -142,7 +142,7 @@ function Admin() {
   if (!token) {
     return (
       <div className="admin-page">
-        <h1>Administration</h1>
+        <h1>PANNEAU ADMINISTRATIF</h1>
         <form onSubmit={login} className="admin-form">
           <label htmlFor="user">Identifiant</label>
           <input
@@ -162,7 +162,7 @@ function Admin() {
             required
           />
 
-          <button type="submit" className="btn-primary">Se connecter</button>
+          <button type="submit" className="btn-primary">CONNECTER</button>
           {message && <p className="form-toast form-toast-error">{message}</p>}
         </form>
       </div>
@@ -173,7 +173,7 @@ function Admin() {
     <div className="admin-page">
       <div className="admin-top">
         <h1>Nouvel article</h1>
-        <button onClick={logout} className="btn-secondary">Déconnexion</button>
+        <button onClick={logout} className="btn-secondary">DECONNECTER</button>
       </div>
 
       <form onSubmit={publish} className="admin-form">
@@ -187,6 +187,7 @@ function Admin() {
           <option>IA</option>
           <option>Management</option>
           <option>Développement local</option>
+          <option>Divers</option>
         </select>
 
         <label htmlFor="image">Image de couverture (optionnelle)</label>
@@ -201,7 +202,7 @@ function Admin() {
           </div>
         )}
 
-        <label htmlFor="resume">Résumé</label>
+        <label htmlFor="resume">Résumé de l'article</label>
         <textarea
           id="resume"
           name="resume"
@@ -211,7 +212,7 @@ function Admin() {
           required
         />
 
-        <label htmlFor="contenu">Contenu (une ligne vide = nouveau paragraphe)</label>
+        <label htmlFor="contenu">Contenu de l'article</label>
         <textarea
           id="contenu"
           name="contenu"

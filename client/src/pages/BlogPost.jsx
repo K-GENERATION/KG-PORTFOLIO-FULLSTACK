@@ -16,13 +16,13 @@ function BlogPost() {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p className="blog-empty">Chargement...</p>;
+  if (loading) return <p className="blog-empty">en cours de chargement...</p>;
 
   if (!post) {
     return (
       <div className="notfound-page">
         <h1>Article introuvable</h1>
-        <Link to="/blog" className="btn-primary">Retour au blog</Link>
+        <Link to="/blog" className="btn-primary">Retour</Link>
       </div>
     );
   }
@@ -45,14 +45,14 @@ function BlogPost() {
   return (
     <article className="blog-post">
       <header className="blog-post-header">
-        <Link to="/blog" className="blog-back">← Retour au blog</Link>
+        <Link to="/blog" className="blog-back">Retour</Link>
         <span className="blog-post-category">{post.categorie}</span>
         <h1>{post.titre}</h1>
         <div className="blog-post-meta">
           <img src="/images/logo.png" alt="" />
           <div>
             <strong>Kingson Guerrier</strong>
-            <span>{date} · {tempsDeLecture(post.contenu)} min de lecture</span>
+            <span>{date} · {tempsDeLecture(post.contenu)} minutes de lecture</span>
           </div>
         </div>
       </header>
@@ -66,12 +66,12 @@ function BlogPost() {
       </div>
 
       <footer className="blog-share">
-        <span>Partager cet article</span>
+        <span>Partager l'article</span>
         <div>
           <a href={`https://wa.me/?text=${titreEnc}%20${urlEnc}`} target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}`} target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href={`https://www.facebook.com/sharer/sharer.php?u=${urlEnc}`} target="_blank" rel="noopener noreferrer">Facebook</a>
-          <button onClick={copier}>{copie ? 'Lien copié ✓' : 'Copier le lien'}</button>
+          <button onClick={copier}>{copie ? 'Lien copié' : 'Copier le lien'}</button>
         </div>
       </footer>
     </article>
