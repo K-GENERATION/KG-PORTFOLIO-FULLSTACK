@@ -17,6 +17,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
+// ===== CONTACT =====
 app.post('/api/contact', (req, res) => {
   const { nom, email, sujet, message } = req.body;
 
@@ -53,7 +54,7 @@ app.post('/api/contact', (req, res) => {
   res.status(200).json({ success: true, message: 'Message envoyé avec succès.' });
 });
 
-// ===== BLOG : jetons de session admin (en mémoire) =====
+// ===== ADMIN : sessions en mémoire =====
 const sessions = new Set();
 
 function requireAdmin(req, res, next) {
@@ -64,16 +65,66 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-app.post('/api/admin/login', (req, res) => {
-  const { password } = req.body;
-  if (!process.env.ADMIN_PASSWORD || password !== process.env.ADMIN_PASSWORD) {
-    return res.status(401).json({ success: false, error: 'Mot de passe incorrect.' });
+// Comparaison à temps constant (évite de révéler la valeur par le temps de réponse)
+function memeValeur(a = '', b = '') {
+  const ha = crypto.createHash('sha256').update(String(a)).digest();
+  const hb = crypto.createHash('sha256').update(String(b)).digest();
+  return crypto.timingSafeEqual(ha, hb);
+}
+
+// Limite simple d'essais de connexion : 5 échecs par IP / 15 min
+const tentatives = new Map();
+const MAX_ESSAIS = 5;
+const FENETRE_MS = 15 * 60 * 1000;
+
+function loginBloque(ip) {
+  const t = tentatives.get(ip);
+  if (!t) return false;
+  if (Date.now() - t.debut > FENETRE_MS) {
+    tentatives.delete(ip);
+    return false;
   }
+  return t.compte >= MAX_ESSAIS;
+}
+
+function noterEchec(ip) {
+  const t = tentatives.get(ip);
+  if (!t || Date.now() - t.debut > FENETRE_MS) {
+    tentatives.set(ip, { compte: 1, debut: Date.now() });
+  } else {
+    t.compte += 1;
+  }
+}
+
+app.post('/api/admin/login', (req, res) => {
+  const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() || req.ip;
+
+  if (loginBloque(ip)) {
+    return res
+      .status(429)
+      .json({ success: false, error: 'Trop d’essais. Réessaie dans 15 minutes.' });
+  }
+
+  const { username, password } = req.body;
+
+  // Si ADMIN_USER n'est pas défini, seul le mot de passe est vérifié
+  const userOk = process.env.ADMIN_USER ? memeValeur(username, process.env.ADMIN_USER) : true;
+  const passOk = process.env.ADMIN_PASSWORD
+    ? memeValeur(password, process.env.ADMIN_PASSWORD)
+    : false;
+
+  if (!userOk || !passOk) {
+    noterEchec(ip);
+    return res.status(401).json({ success: false, error: 'Identifiants incorrects.' });
+  }
+
+  tentatives.delete(ip);
   const token = crypto.randomBytes(32).toString('hex');
   sessions.add(token);
   res.json({ success: true, token });
 });
 
+// ===== BLOG : articles =====
 // Lecture publique
 app.get('/api/posts', async (req, res) => {
   try {
@@ -114,24 +165,57 @@ app.delete('/api/admin/posts/:id', requireAdmin, async (req, res) => {
   }
 });
 
-// Route protégée pour consulter les messages reçus
-app.get('/api/messages', (req, res) => {
-  const motDePasse = req.query.password;
-  const motDePasseAttendu = process.env.ADMIN_PASSWORD || 'change-moi';
-
-  if (motDePasse !== motDePasseAttendu) {
-    return res.status(401).json({ success: false, error: 'Accès refusé. Mot de passe requis.' });
+// ===== BLOG : images =====
+// Upload (admin) : le corps de la requête est le fichier brut
+app.post(
+  '/api/admin/upload',
+  requireAdmin,
+  express.raw({ type: ['image/jpeg', 'image/png', 'image/webp'], limit: '3mb' }),
+  async (req, res) => {
+    const mime = req.headers['content-type'];
+    if (!Buffer.isBuffer(req.body) || req.body.length === 0) {
+      return res.status(400).json({ success: false, error: 'Image invalide.' });
+    }
+    try {
+      const { rows } = await pool.query(
+        'INSERT INTO images (mime, data) VALUES ($1, $2) RETURNING id',
+        [mime, req.body]
+      );
+      res.json({ success: true, url: `/api/images/${rows[0].id}` });
+    } catch (err) {
+      res.status(500).json({ success: false, error: 'Erreur serveur.' });
+    }
   }
+);
 
+// Lecture publique d'une image
+app.get('/api/images/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id)) return res.status(404).end();
+  try {
+    const { rows } = await pool.query('SELECT mime, data FROM images WHERE id = $1', [id]);
+    if (rows.length === 0) return res.status(404).end();
+    res.set('Content-Type', rows[0].mime);
+    res.set('Cache-Control', 'public, max-age=31536000, immutable');
+    res.send(rows[0].data);
+  } catch (err) {
+    res.status(500).end();
+  }
+});
+
+// ===== MESSAGES DE CONTACT (admin) =====
+// Utilise maintenant le jeton (en-tête Authorization), plus de mot de passe dans l'URL
+app.get('/api/admin/messages', requireAdmin, (req, res) => {
   const messagesPath = path.join(__dirname, 'messages.json');
   if (fs.existsSync(messagesPath)) {
     const data = fs.readFileSync(messagesPath, 'utf-8');
-    res.json(JSON.parse(data));
+    res.json(data ? JSON.parse(data) : []);
   } else {
     res.json([]);
   }
 });
 
+// ===== CATCH-ALL : toujours en dernier =====
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
