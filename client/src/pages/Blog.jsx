@@ -24,7 +24,7 @@ function Blog() {
   return (
     <div className="blog-page">
       <header className="blog-hero">
-        <h1>OPINIONM PERSONNNELLES</h1>
+        <h1>OPINIONS PERSONNNELLES</h1>
         <p>Des réflexions sur la technologie, l'IA, le management et la gestion de projets.</p>
       </header>
 
