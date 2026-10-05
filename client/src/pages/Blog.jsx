@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import BlogCard from '../components/Blog/BlogCard';
+import BlogCard from '../components/blog/BlogCard';
 
 function Blog() {
   const [posts, setPosts] = useState([]);
