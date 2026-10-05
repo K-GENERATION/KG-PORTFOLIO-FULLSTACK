@@ -8,7 +8,7 @@ import About from './pages/About';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Blog from './pages/Blog';
-import BlogPost from './pages/Blogpost';
+import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
