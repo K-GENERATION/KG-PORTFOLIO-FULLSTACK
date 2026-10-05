@@ -1961,3 +1961,74 @@ body[data-theme='dark'] .summary-card {
   margin: 15px 0 25px;
   max-width: 400px;
 }
+
+
+/* ===== ADMIN ===== */
+.admin-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.admin-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0 40px;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  padding: 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+  color: inherit;
+}
+
+.admin-form button {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.admin-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: #F8FAFC;
+  border-radius: 8px;
+}
+
+body[data-theme='dark'] .admin-list li {
+  background-color: #1E293B;
+}
+
+.admin-delete {
+  background: none;
+  border: 1px solid #DC2626;
+  color: #DC2626;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}

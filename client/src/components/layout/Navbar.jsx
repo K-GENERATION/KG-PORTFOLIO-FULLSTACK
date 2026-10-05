@@ -35,6 +35,7 @@ function Navbar() {
         <li><Link to="/about" onClick={closeMenu}>BIOGRAPHIE</Link></li>
         <li><Link to="/experience" onClick={closeMenu}>EXPÉRIENCES</Link></li>
         <li><Link to="/projects" onClick={closeMenu}>PROJETS</Link></li>
+        <li><Link to="/blog" onClick={closeMenu}>OPINION</Link></li>
         <li><Link to="/contact" onClick={closeMenu}>CONTACT</Link></li>
 
         <li className="navbar-actions-mobile">
